@@ -9,10 +9,9 @@ from livekit.agents import (
     JobContext,
     TurnHandlingOptions,
     cli,
-    inference,
     room_io,
 )
-from livekit.plugins import ai_coustics
+from livekit.plugins import ai_coustics, google
 
 logger = logging.getLogger("agent")
 
@@ -24,7 +23,7 @@ class Assistant(Agent):
         super().__init__(
             # A Large Language Model (LLM) is your agent's brain, processing user input and generating a response
             # See all available models at https://docs.livekit.io/agents/models/llm/
-            llm=inference.LLM(model="google/gemma-4-31b-it"),
+            # llm=inference.LLM(model="google/gemma-4-31b-it"),
             # To use a realtime model instead of a voice pipeline, replace the LLM
             # with a RealtimeModel and remove the STT/TTS from the AgentSession
             # (Note: This is for the OpenAI Realtime API. For other providers, see https://docs.livekit.io/agents/models/realtime/)
@@ -33,6 +32,9 @@ class Assistant(Agent):
             # 3. Add `from livekit.plugins import openai` to the top of this file
             # 4. Replace the llm argument with:
             #     llm=openai.realtime.RealtimeModel(voice="marin")
+            llm=google.realtime.RealtimeModel(
+                voice="charon",
+            ),
             instructions=textwrap.dedent(
                 """\
                 You are a friendly, reliable voice assistant that answers questions, explains topics, and completes tasks with available tools.
@@ -103,23 +105,23 @@ async def my_agent(ctx: JobContext):
     session = AgentSession(
         # Speech-to-text (STT) is your agent's ears, turning the user's speech into text that the LLM can understand
         # See all available models at https://docs.livekit.io/agents/models/stt/
-        stt=inference.STT(model="deepgram/nova-3", language="multi"),
+        # stt=inference.STT(model="deepgram/nova-3", language="multi"),
         # Text-to-speech (TTS) is your agent's voice, turning the LLM's text into speech that the user can hear
         # See all available models as well as voice selections at https://docs.livekit.io/agents/models/tts/
-        tts=inference.TTS(
-            model="cartesia/sonic-3", voice="9626c31c-bec5-4cca-baa8-f8ba9e84c8bc"
-        ),
+        # tts=inference.TTS(
+            # model="cartesia/sonic-3", voice="9626c31c-bec5-4cca-baa8-f8ba9e84c8bc"
+        # ),
         # The LiveKit turn detector determines when the user is done speaking and the agent should respond.
         # TurnDetector is an end-of-turn model that listens to the user's audio directly, combining
         # semantic understanding with acoustic cues (intonation, pitch, rhythm) for state-of-the-art accuracy.
         # AgentSession supplies the required VAD automatically.
         # See more at https://docs.livekit.io/agents/build/turns
-        turn_handling=TurnHandlingOptions(
-            turn_detection=inference.TurnDetector(),
-        ),
+        # turn_handling=TurnHandlingOptions(
+            # turn_detection=inference.TurnDetector(),
+        # ),
         # allow the LLM to generate a response while waiting for the end of turn
         # See more at https://docs.livekit.io/agents/build/audio/#preemptive-generation
-        preemptive_generation=True,
+        # preemptive_generation=True,
     )
 
     # Start the session, which initializes the voice pipeline and warms up the models
