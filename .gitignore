@@ -31,3 +31,21 @@ KMS
 
 # GitHub CLI
 .github/personal-instructions.md
+
+# Local secrets
+token.txt
+*.kate-swp
+
+# Logs
+logs/
+*.log
+
+# Memory (যদি ব্যক্তিগত তথ্য থাকে)
+memory/*.bak
+
+# Audio recordings
+*.wav
+
+# Python cache
+*.py[cod]
+*$py.class
