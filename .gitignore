@@ -49,3 +49,7 @@ memory/*.bak
 # Python cache
 *.py[cod]
 *$py.class
+
+# Logs
+logs/
+*.log
