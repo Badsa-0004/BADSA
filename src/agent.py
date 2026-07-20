@@ -12,6 +12,7 @@ from livekit.agents import (
 )
 from livekit.plugins import ai_coustics, google
 from prompts import ASSISTANT_PROMPT
+from core import DEFAULT_VOICE, log_startup
 
 logger = logging.getLogger("agent")
 
@@ -33,7 +34,7 @@ class Assistant(Agent):
             # 4. Replace the llm argument with:
             #     llm=openai.realtime.RealtimeModel(voice="marin")
             llm=google.realtime.RealtimeModel(
-                voice="charon",
+                voice=DEFAULT_VOICE,
             ),
             instructions=ASSISTANT_PROMPT,
         )
@@ -62,6 +63,7 @@ server = AgentServer()
 @server.rtc_session(agent_name="my-agent")
 async def my_agent(ctx: JobContext):
     # Logging setup
+    log_startup()
     # Add any other context you want in all log entries here
     ctx.log_context_fields = {
         "room": ctx.room.name,
