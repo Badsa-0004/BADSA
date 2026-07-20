@@ -14,13 +14,14 @@ from livekit.plugins import ai_coustics, google
 from prompts import ASSISTANT_PROMPT
 from core import log_startup
 from config import settings
+from tools import DateTimeTools
 
 logger = logging.getLogger("agent")
 
 load_dotenv(".env.local")
 
 
-class Assistant(Agent):
+class Assistant(Agent, DateTimeTools):
     def __init__(self) -> None:
         super().__init__(
             # A Large Language Model (LLM) is your agent's brain, processing user input and generating a response
