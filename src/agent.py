@@ -12,7 +12,8 @@ from livekit.agents import (
 )
 from livekit.plugins import ai_coustics, google
 from prompts import ASSISTANT_PROMPT
-from core import DEFAULT_VOICE, log_startup
+from core import log_startup
+from config import settings
 
 logger = logging.getLogger("agent")
 
@@ -34,7 +35,7 @@ class Assistant(Agent):
             # 4. Replace the llm argument with:
             #     llm=openai.realtime.RealtimeModel(voice="marin")
             llm=google.realtime.RealtimeModel(
-                voice=DEFAULT_VOICE,
+                voice=settings.voice,
             ),
             instructions=ASSISTANT_PROMPT,
         )

@@ -1,0 +1,59 @@
+[1mdiff --git a/src/agent.py b/src/agent.py[m
+[1mindex 80f2fdc..984101d 100644[m
+[1m--- a/src/agent.py[m
+[1m+++ b/src/agent.py[m
+[36m@@ -12,7 +12,8 @@[m [mfrom livekit.agents import ([m
+ )[m
+ from livekit.plugins import ai_coustics, google[m
+ from prompts import ASSISTANT_PROMPT[m
+[31m-from core import DEFAULT_VOICE, log_startup[m
+[32m+[m[32mfrom core import log_startup[m
+[32m+[m[32mfrom config import settings[m
+ [m
+ logger = logging.getLogger("agent")[m
+ [m
+[36m@@ -34,7 +35,7 @@[m [mclass Assistant(Agent):[m
+             # 4. Replace the llm argument with:[m
+             #     llm=openai.realtime.RealtimeModel(voice="marin")[m
+             llm=google.realtime.RealtimeModel([m
+[31m-                voice=DEFAULT_VOICE,[m
+[32m+[m[32m                voice=settings.voice,[m
+             ),[m
+             instructions=ASSISTANT_PROMPT,[m
+         )[m
+[1mdiff --git a/src/config.py b/src/config.py[m
+[1mindex 5f3d564..da47408 100644[m
+[1m--- a/src/config.py[m
+[1m+++ b/src/config.py[m
+[36m@@ -24,6 +24,11 @@[m [mclass Settings(BaseSettings):[m
+     app_name: str = Field(default="BADSA", alias="APP_NAME")[m
+     app_env: str = Field(default="development", alias="APP_ENV")[m
+     log_level: str = Field(default="INFO", alias="LOG_LEVEL")[m
+[32m+[m[41m    [m
+[32m+[m[32m    # -------------------------[m
+[32m+[m[32m    # Assistant[m
+[32m+[m[32m    # -------------------------[m
+[32m+[m[32m    voice: str = Field(default="charon", alias="BADSA_VOICE")[m
+ [m
+     # -------------------------[m
+     # LiveKit[m
+[1mdiff --git a/src/core/startup.py b/src/core/startup.py[m
+[1mindex 7a46edf..1e45c1e 100644[m
+[1m--- a/src/core/startup.py[m
+[1m+++ b/src/core/startup.py[m
+[36m@@ -6,12 +6,13 @@[m [mimport logging[m
+ [m
+ from core.constants import APP_NAME[m
+ from core.version import VERSION[m
+[32m+[m[32mfrom config import settings[m
+ [m
+ logger = logging.getLogger("agent")[m
+ [m
+ [m
+ def log_startup() -> None:[m
+[31m-    """Log application startup information."""[m
+     logger.info("=" * 60)[m
+     logger.info("%s v%s starting...", APP_NAME, VERSION)[m
+[32m+[m[32m    logger.info("Voice: %s", settings.voice)[m
+     logger.info("=" * 60)[m
+\ No newline at end of file[m

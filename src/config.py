@@ -24,6 +24,11 @@ class Settings(BaseSettings):
     app_name: str = Field(default="BADSA", alias="APP_NAME")
     app_env: str = Field(default="development", alias="APP_ENV")
     log_level: str = Field(default="INFO", alias="LOG_LEVEL")
+    
+    # -------------------------
+    # Assistant
+    # -------------------------
+    voice: str = Field(default="charon", alias="BADSA_VOICE")
 
     # -------------------------
     # LiveKit
