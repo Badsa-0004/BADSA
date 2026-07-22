@@ -55,3 +55,45 @@
     gap:10px;
 
 }
+
+/* Conversation */
+
+.message{
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin-bottom:15px;
+
+    line-height:1.5;
+
+}
+
+.user{
+
+    background:#18324b;
+
+    border-left:4px solid #29b6f6;
+
+}
+
+.assistant{
+
+    background:#1b2b1b;
+
+    border-left:4px solid #4caf50;
+
+}
+
+.sender{
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+    opacity:.8;
+
+}
