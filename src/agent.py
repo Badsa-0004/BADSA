@@ -14,14 +14,14 @@ from livekit.plugins import ai_coustics, google
 from prompts import ASSISTANT_PROMPT
 from core import log_startup
 from config import settings
-from tools import DateTimeTools
+from toolsets import CORE_TOOLSET
 
 logger = logging.getLogger("agent")
 
 load_dotenv(".env.local")
 
 
-class Assistant(Agent, DateTimeTools):
+class Assistant(Agent):
     def __init__(self) -> None:
         super().__init__(
             # A Large Language Model (LLM) is your agent's brain, processing user input and generating a response
@@ -36,9 +36,12 @@ class Assistant(Agent, DateTimeTools):
             # 4. Replace the llm argument with:
             #     llm=openai.realtime.RealtimeModel(voice="marin")
             llm=google.realtime.RealtimeModel(
-                voice=settings.voice,
+                voice=settings.voice
             ),
             instructions=ASSISTANT_PROMPT,
+            tools=[
+                CORE_TOOLSET,
+            ],
         )
 
     # To add tools, use the @function_tool decorator.
