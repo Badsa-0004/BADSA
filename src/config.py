@@ -48,5 +48,18 @@ class Settings(BaseSettings):
     memory_path: str = Field(default="memory/memory.json", alias="MEMORY_PATH")
     notes_path: str = Field(default="memory/notes.json", alias="NOTES_PATH")
 
+    # -------------------------
+    # Weather
+    # -------------------------
+    default_city: str = Field(
+        default="Kharagpur",
+        alias="DEFAULT_CITY",
+    )
+
+    default_country: str = Field(
+        default="India",
+        alias="DEFAULT_COUNTRY", 
+    )
+
 
 settings = Settings()

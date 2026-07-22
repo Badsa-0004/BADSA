@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BADSA</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            BADSA
+        </div>
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            <span id="connection-status">
+                Disconnected
+            </span>
+
+        </div>
+
+    </header>
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <!-- Left -->
+
+        <section class="panel conversation-panel">
+
+            <h2>Conversation</h2>
+
+            <div id="conversation">
+
+            </div>
+
+        </section>
+
+
+        <!-- Center -->
+
+        <section class="center-panel">
+
+            <div id="orb">
+
+            </div>
+
+            <h2 id="agent-state">
+
+                Idle
+
+            </h2>
+
+            <button id="mic-button">
+
+                🎤 Start
+
+            </button>
+
+        </section>
+
+
+        <!-- Right -->
+
+        <section class="panel log-panel">
+
+            <h2>Logs</h2>
+
+            <div id="logs">
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

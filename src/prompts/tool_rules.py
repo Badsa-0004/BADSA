@@ -31,4 +31,26 @@ If the tool succeeds:
 
 If the tool fails:
 - Explain briefly that the information couldn't be retrieved.
+
+## Weather
+
+Always call the get_weather tool when the user asks about:
+
+- weather
+- today's weather
+- current weather
+- temperature
+- humidity
+- wind
+- rain
+- forecast
+- climate today
+- how hot it is
+- how cold it is
+
+If the user specifies a city, use it.
+
+If no city is provided, call the tool without a city so it can use the configured default location.
+
+Never guess weather conditions.
 """

@@ -1,0 +1,105 @@
+.app{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100vh;
+
+}
+
+.header{
+
+    height:70px;
+
+    padding:0 30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border-bottom:1px solid #222;
+
+}
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    letter-spacing:3px;
+
+}
+
+.status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.status-dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#ff3b30;
+
+}
+
+.main{
+
+    flex:1;
+
+    display:grid;
+
+    grid-template-columns:300px 1fr 300px;
+
+}
+
+.panel{
+
+    border-right:1px solid #222;
+
+    padding:20px;
+
+    overflow:auto;
+
+}
+
+.log-panel{
+
+    border-right:none;
+
+    border-left:1px solid #222;
+
+}
+
+.center-panel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:30px;
+
+}
+
+.panel h2{
+
+    margin-bottom:20px;
+
+}

@@ -9,39 +9,34 @@ logger = logging.getLogger(__name__)
 @function_tool()
 async def get_current_datetime(context: RunContext) -> str:
     """
-    Purpose:
-        Retrieve the current local date and time.
+    Get the current date and local time.
 
-    Use this tool when the user asks about:
-        - current time
-        - current date
-        - today's date
-        - today's time
-        - today's day
-        - weekday
-        - day of the week
-        - month
-        - year
-        - local date
-        - local time
-        - what time it is
-        - what day it is
+    Use this tool whenever the user asks about:
 
-    This tool is the authoritative source for all date and time
-    information.
+    - current time
+    - current date
+    - today's date
+    - today's day
+    - weekday
+    - day of the week
+    - month
+    - year
+    - local date
+    - local time
 
-    Never answer date or time questions using internal knowledge if
-    this tool can be used.
+    Always use this tool instead of relying on internal knowledge,
+    because the current date and time constantly change.
 
     Returns:
-        A human-readable string containing the current local date and
-        time.
+        The current date and local time formatted for natural speech.
     """
 
-    logger.info("get_current_datetime tool executed")
+    logger.info("Executing tool: get_current_datetime")
 
     now = datetime.now()
 
-    return now.strftime(
-        "Current date and time: %A, %d %B %Y, %I:%M:%S %p"
+    formatted_datetime = now.strftime(
+        "%A, %d %B %Y at %I:%M:%S %p"
     )
+
+    return f"Current date and local time: {formatted_datetime}"
