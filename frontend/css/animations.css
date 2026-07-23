@@ -1,0 +1,351 @@
+/* =====================================================
+                    FADE
+===================================================== */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+        transform: translateY(12px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+}
+
+/* =====================================================
+                ORB ROTATION
+===================================================== */
+
+@keyframes rotateSlow {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+@keyframes rotateReverse {
+
+    from {
+
+        transform: rotate(360deg);
+
+    }
+
+    to {
+
+        transform: rotate(0deg);
+
+    }
+
+}
+
+/* =====================================================
+                CORE BREATHING
+===================================================== */
+
+@keyframes breathe {
+
+    0% {
+
+        transform: scale(.96);
+
+        box-shadow:
+            0 0 20px #00bfff,
+            0 0 45px rgba(0, 191, 255, .35);
+
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+        box-shadow:
+            0 0 45px #00bfff,
+            0 0 90px rgba(0, 191, 255, .65);
+
+    }
+
+    100% {
+
+        transform: scale(.96);
+
+        box-shadow:
+            0 0 20px #00bfff,
+            0 0 45px rgba(0, 191, 255, .35);
+
+    }
+
+}
+
+/* =====================================================
+                RIPPLE
+===================================================== */
+
+@keyframes ripple {
+
+    0% {
+
+        transform: scale(.8);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform: scale(1.6);
+
+        opacity: 0;
+
+    }
+
+}
+
+/* =====================================================
+                SPEAKING
+===================================================== */
+
+@keyframes speaking {
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+    25% {
+
+        transform: scale(1.10);
+
+    }
+
+    50% {
+
+        transform: scale(.95);
+
+    }
+
+    75% {
+
+        transform: scale(1.08);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
+
+/* =====================================================
+                THINKING
+===================================================== */
+
+@keyframes thinking {
+
+    0% {
+
+        filter: hue-rotate(0deg);
+
+    }
+
+    100% {
+
+        filter: hue-rotate(90deg);
+
+    }
+
+}
+
+/* =====================================================
+            DEFAULT ORB ANIMATION
+===================================================== */
+
+.orb-svg .outer-ring {
+
+    animation: rotateSlow 18s linear infinite;
+
+    transform-origin: 150px 150px;
+
+}
+
+.orb-svg .segment-ring {
+
+    animation: rotateReverse 9s linear infinite;
+
+    transform-origin: 150px 150px;
+
+}
+
+.orb-svg .inner-ring {
+
+    animation: rotateSlow 4s linear infinite;
+
+    transform-origin: 150px 150px;
+
+}
+
+.orb-core {
+
+    animation: breathe 3s ease-in-out infinite;
+
+}
+
+/* =====================================================
+                STATES
+===================================================== */
+
+/* ---------- Idle ---------- */
+
+.orb-idle .outer-ring {
+
+    border-color: #00bfff;
+
+}
+
+.orb-idle .segment-ring {
+
+    border-color: #00d4ff;
+
+}
+
+.orb-idle .inner-ring {
+
+    border-color: #6adfff;
+
+}
+
+.orb-idle .orb-core {
+
+    background: radial-gradient(circle,
+            #b8ecff,
+            #3cc7ff,
+            #0077ff);
+
+}
+
+/* ---------- Listening ---------- */
+
+.orb-listening .outer-ring {
+
+    border-color: #00ff9d;
+
+    animation: rotateSlow 8s linear infinite;
+
+}
+
+.orb-listening .segment-ring {
+
+    border-color: #00ffbf;
+
+    animation: rotateReverse 4s linear infinite;
+
+}
+
+.orb-listening .inner-ring {
+
+    border-color: #7dffd5;
+
+}
+
+.orb-listening .orb-core {
+
+    background: radial-gradient(circle,
+            #d6fff0,
+            #00ff9d,
+            #009966);
+
+    animation: speaking .8s infinite;
+
+}
+
+/* ---------- Thinking ---------- */
+
+.orb-thinking .outer-ring {
+
+    border-color: #ffb300;
+
+    animation: rotateSlow 2s linear infinite;
+
+}
+
+.orb-thinking .segment-ring {
+
+    border-color: #ffd54f;
+
+    animation: rotateReverse 1.2s linear infinite;
+
+}
+
+.orb-thinking .inner-ring {
+
+    border-color: #ffe082;
+
+}
+
+.orb-thinking .orb-core {
+
+    background: radial-gradient(circle,
+            #fff8e1,
+            #ffc107,
+            #ff9800);
+
+    animation: breathe 1s infinite;
+
+}
+
+/* ---------- Speaking ---------- */
+
+.orb-speaking .outer-ring {
+
+    border-color: #d500f9;
+
+}
+
+.orb-speaking .segment-ring {
+
+    border-color: #ea80fc;
+
+}
+
+.orb-speaking .inner-ring {
+
+    border-color: #f3b3ff;
+
+}
+
+.orb-speaking .orb-core {
+
+    background: radial-gradient(circle,
+            #ffffff,
+            #ea80fc,
+            #9c27b0);
+
+    animation: speaking .35s infinite;
+
+}
+
+.message {
+
+    animation: fadeIn .25s ease;
+
+}

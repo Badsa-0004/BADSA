@@ -1,17 +1,180 @@
+/* ======================================================
+                    RESET
+====================================================== */
+
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
 }
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/* ======================================================
+                    ROOT
+====================================================== */
+
+:root{
+
+    --bg:#0a0f18;
+
+    --panel:#111827;
+
+    --panel2:#161f2c;
+
+    --primary:#00bfff;
+
+    --primary-light:#66ddff;
+
+    --success:#00ff88;
+
+    --warning:#ffb300;
+
+    --danger:#ff3b30;
+
+    --text:#ffffff;
+
+    --muted:#94a3b8;
+
+    --border:rgba(255,255,255,.06);
+
+}
+
+/* ======================================================
+                    BODY
+====================================================== */
 
 body{
 
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;
 
-    background:#0b0f17;
+    background:
+        radial-gradient(circle at top,#122033 0%,#0a0f18 45%,#06080d 100%);
 
-    color:white;
+    color:var(--text);
 
     overflow:hidden;
+
+    user-select:none;
+
+}
+
+/* ======================================================
+                SELECTION
+====================================================== */
+
+::selection{
+
+    background:var(--primary);
+
+    color:#000;
+
+}
+
+/* ======================================================
+                SCROLLBAR
+====================================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0b111b;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#24445c;
+
+    border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#3b6c90;
+
+}
+
+/* ======================================================
+                LINKS
+====================================================== */
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+/* ======================================================
+                BUTTONS
+====================================================== */
+
+button{
+
+    font-family:inherit;
+
+}
+
+/* ======================================================
+                INPUTS
+====================================================== */
+
+input,textarea{
+
+    font-family:inherit;
+
+    outline:none;
+
+}
+
+/* ======================================================
+                GLASS BACKGROUND
+====================================================== */
+
+.glass{
+
+    background:rgba(255,255,255,.03);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+/* ======================================================
+                UTILITIES
+====================================================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
 }
