@@ -24,6 +24,11 @@ class Settings(BaseSettings):
     app_name: str = Field(default="BADSA", alias="APP_NAME")
     app_env: str = Field(default="development", alias="APP_ENV")
     log_level: str = Field(default="INFO", alias="LOG_LEVEL")
+    
+    # -------------------------
+    # Assistant
+    # -------------------------
+    voice: str = Field(default="charon", alias="BADSA_VOICE")
 
     # -------------------------
     # LiveKit
@@ -42,6 +47,19 @@ class Settings(BaseSettings):
     # -------------------------
     memory_path: str = Field(default="memory/memory.json", alias="MEMORY_PATH")
     notes_path: str = Field(default="memory/notes.json", alias="NOTES_PATH")
+
+    # -------------------------
+    # Weather
+    # -------------------------
+    default_city: str = Field(
+        default="Kharagpur",
+        alias="DEFAULT_CITY",
+    )
+
+    default_country: str = Field(
+        default="India",
+        alias="DEFAULT_COUNTRY", 
+    )
 
 
 settings = Settings()

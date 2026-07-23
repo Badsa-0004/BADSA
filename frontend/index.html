@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BADSA</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div class="logo">
+                BADSA
+            </div>
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                <span id="connection-status">
+                    Disconnected
+                </span>
+
+            </div>
+
+        </header>
+
+        <!-- Main -->
+
+        <main class="main">
+
+            <!-- Left -->
+
+            <section class="panel conversation-panel">
+
+                <h2>Conversation</h2>
+
+                <div id="conversation"></div>
+
+            </section>
+
+
+            <!-- Center -->
+
+            <section class="center-panel">
+
+                <div id="orb" class="orb-idle">
+
+                    <div class="orb-glow"></div>
+
+                    <svg class="orb-svg" viewBox="0 0 300 300">
+
+                        <!-- Outer Ring -->
+                        <circle class="outer-ring" cx="150" cy="150" r="130" fill="none" stroke="#00bfff"
+                            stroke-width="2" stroke-dasharray="18 10" />
+
+                        <!-- Middle Ring -->
+                        <circle class="segment-ring" cx="150" cy="150" r="102" fill="none" stroke="#00d8ff"
+                            stroke-width="3" stroke-dasharray="32 14" />
+
+                        <!-- Inner Ring -->
+                        <circle class="inner-ring" cx="150" cy="150" r="76" fill="none" stroke="#6fdfff"
+                            stroke-width="2" stroke-dasharray="8 6" />
+
+                    </svg>
+
+                    <div class="orb-core"></div>
+
+                </div>
+
+                <h2 id="agent-state">
+
+                    Idle
+
+                </h2>
+
+                <button id="mic-button">
+
+                    🎤 Start
+
+                </button>
+
+            </section>
+
+
+            <!-- Right -->
+
+            <section class="panel log-panel">
+
+                <h2>Logs</h2>
+
+                <div id="logs"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+
+</body>
+
+</html>
